@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<style>
+		.error{
+			border:1px solid red;
+		}
+		.errortips{
+			color:red
+		}
+	</style>
+</head>
+<body ng-controller="myCtrl">
+	<div class="container">
+		<form name="sinupform" ng-submit="person.submitForm()">
+			<div class="form-group">
+			    <label>name</label>
+			    <input name="name" type="text" class="form-control" ng-model="person.name" ng-maxlength="10" ng-minlength="4" 
+				ng-class="{'error':sinupform.name.$invalid && sinupform.name.$touched}"	
+			    required >
+			   <div class="errortips" ng-if="sinupform.name.$invalid && sinupform.name.$touched">
+					信息输入错误，请检查
+			   </div>
+			    <!-- ng-if="sinupform.name.$invalid && sinupform.name.$touched" -->
+			    <!-- 此处的ng-if作用判断内容是否合法 显示的状态 -->
+			   <div ng-if="sinupform.name.$invalid && sinupform.name.$touched">
+			   信息输入错误，请检查信息输入错误，请检查信息输入错误，请检查信息输入错误，请检查信息输入错误，请检查
+			   </div>
+			</div>
+			
+			<button ng-click="person.btn1()">Submit</button>
+		</form>
+	</div>
+	<script src="js/angular.min.js"></script>
+	<script>
+		var app=angular.module('myApp',[]);
+		app.controller('myCtrl',["$scope",function($scope){
+			var person=person||{};
+			person.btn1=function(){
+				alert('123')
+			};
+			person.submitForm=function(){
+				console.log('134')
+			}
+			$scope.person=person;
+		}])
+	</script>
+</body>
+</html>

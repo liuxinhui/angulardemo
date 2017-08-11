@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	
+</head>
+<body ng-controller="myCtrl">
+	<div class="container">
+		<form>
+			<div class="form-group">
+			    <label for="exampleInputEmail1">name</label>
+			    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Email" ng-model="person.name" ng-maxlength="10" ng-minlength="4">
+			    <div ng-bind="person.name"></div>
+			</div>
+			<div class="form-group">
+			    <label for="exampleInputPassword1">Password</label>
+			    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+			</div>
+			<div class="form-group">
+			    <label for="exampleInputPassword2">Password</label>
+			    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+			</div>
+			<button ng-click="person.btn1()">Submit</button>
+		</form>
+	</div>
+	<script src="js/angular-1.3.0.js"></script>
+	<script>
+		var app=angular.module('myApp',[]);
+		app.controller('myCtrl',["$scope",function($scope){
+			var person=person||{};
+			person.btn1=function(){
+				alert('123')
+			}
+			$scope.person=person;
+		}])
+	</script>
+</body>
+</html>
