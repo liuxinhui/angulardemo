@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	
+</head>
+<body ng-controller="myCtrl">
+	<div class="container">
+		<table border="1" class="table table-bordered table-striped table-hover ">
+			<thead>
+				<tr>
+					<th class="text-center">姓名</th>
+					<th class="text-center">年龄</th>
+					<th class="text-center">地址</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="key in people">
+					<td ng-bind="key.name"></td>
+					<td ng-bind="key.age"></td>
+					<td ng-bind="key.city"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script src="js/angular-1.3.0.js"></script>
+	<script>
+		var app=angular.module('myApp',[]);
+		app.controller('myCtrl',["$scope",function($scope){
+			$scope.people=[
+				{name:'liuxinhui',age:'29',city:'hebei'},
+				{name:'liuxinhui',age:'29',city:'hebei'},
+				{name:'liuxinhui',age:'29',city:'hebei'}
+			]
+
+		}]);
+		
+	</script>
+</body>
+</html>

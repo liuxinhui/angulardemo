@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<style type="text/css">
+		.ceshi{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body ng-controller="myCtrl">
+	<div class="container">
+		<!-- <button ng-click="showChange()">button</button> -->
+		<input type="checkbox" ng-model="ishow" ng-init="ishow=true">
+       	<div ng-if="ishow" class="ceshi"></div>
+	</div>
+	<script src="js/angular-1.3.0.js"></script>
+	<script>
+		var app=angular.module('myApp',[]);
+		app.controller('myCtrl',["$scope",function($scope){
+			// $scope.ishow=true; //初始化
+			// $scope.showChange=function(){
+			// 	$scope.ishow=false;
+			// }
+
+		}]);
+		
+	</script>
+</body>
+</html>

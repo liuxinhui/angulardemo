@@ -22,7 +22,8 @@
 			    <label for="exampleInputPassword2">Password</label>
 			    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
 			</div>
-			<button ng-click="person.btn1()">Submit</button>
+			<textarea ng-disabled="isDisabled" class="form-control">禁用5秒钟</textarea>
+			<button ng-model="button" ng-disabled="!person.name">Submit</button>
 		</form>
 	</div>
 	<script src="js/angular-1.3.0.js"></script>
@@ -32,9 +33,15 @@
 			var person=person||{};
 			person.btn1=function(){
 				alert('123')
-			}
+			};
 			$scope.person=person;
-		}])
+		}]);
+		app.run(function($rootScope,$timeout){
+			$rootScope.isDisabled=true;
+			$timeout(function(){
+				$rootScope.isDisabled=false;
+			},5000)
+		})
 	</script>
 </body>
 </html>
